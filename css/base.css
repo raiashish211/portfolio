@@ -1,0 +1,150 @@
+/* ============================================================
+   BASE — design tokens, reset, typography, shared utilities
+   Edit palette / fonts / spacing scale here. Section files
+   (hero.css, about.css, experience.css, skills.css,
+   projects.css, contact.css) only style their own section.
+   ============================================================ */
+
+:root{
+  /* --- Color: "engineering console" palette --- */
+  --bg:            #0A0F1C;
+  --bg-soft:       #0D1424;
+  --panel:         #121A2B;
+  --panel-2:       #172038;
+  --border:        #253256;
+  --border-soft:   #1C2740;
+
+  --text:          #E8EAF0;
+  --text-dim:      #A8AFC2;
+  --text-muted:    #6E7690;
+
+  --brass:         #C9A15C;
+  --brass-soft:    #E4C98B;
+  --brass-dim:     #7A6538;
+
+  --teal:          #4FD1C5;
+  --teal-dim:      #2E7A72;
+
+  --danger:        #E1725C;
+
+  /* --- Type --- */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body:    'Inter', 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Consolas', monospace;
+
+  /* --- Layout --- */
+  --max-w: 1180px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 18px;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *, *::before, *::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* subtle grid/dot texture behind everything */
+body{
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.035) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  margin: 0 0 0.4em;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+p{ margin: 0 0 1em; color: var(--text-dim); }
+a{ color: inherit; text-decoration: none; }
+img{ max-width: 100%; display: block; }
+ul{ margin: 0; padding: 0; list-style: none; }
+
+::selection{ background: var(--brass); color: var(--bg); }
+
+:focus-visible{
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.section__inner{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 96px var(--gutter);
+}
+@media (max-width: 720px){
+  .section__inner{ padding: 64px var(--gutter); }
+}
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--brass);
+  margin: 0 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Buttons */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: var(--radius-s);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+}
+.btn--primary{
+  background: var(--brass);
+  color: #14100a;
+}
+.btn--primary:hover{ transform: translateY(-2px); background: var(--brass-soft); }
+
+.btn--ghost{
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn--ghost:hover{ transform: translateY(-2px); border-color: var(--brass); color: var(--brass-soft); }
+
+/* Reveal-on-scroll (toggled by js/main.js) */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section heading pattern shared across sections */
+.section-title{
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  max-width: 720px;
+}

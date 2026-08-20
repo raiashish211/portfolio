@@ -1,0 +1,41 @@
+/* ============================================================
+   SKILLS — grouped chip grid
+   ============================================================ */
+
+.skills{ border-bottom: 1px solid var(--border-soft); }
+
+.skill-grid{
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+}
+@media (max-width: 720px){
+  .skill-grid{ grid-template-columns: 1fr; }
+}
+
+.skill-group__title{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.chip-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.chip{
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 7px 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-dim);
+  background: var(--panel);
+  transition: border-color .15s ease, color .15s ease;
+}
+.chip:hover{ border-color: var(--brass); color: var(--brass-soft); }

@@ -1,0 +1,55 @@
+/* ============================================================
+   CONTACT / FOOTER
+   ============================================================ */
+
+.contact{ position: relative; overflow: hidden; }
+.contact::before{
+  content: "";
+  position: absolute;
+  bottom: -200px;
+  left: -140px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(79,209,197,0.10), transparent 65%);
+  pointer-events: none;
+}
+
+.contact .section__inner{ text-align: center; padding-top: 110px; padding-bottom: 60px; }
+.contact .eyebrow{ justify-content: center; }
+
+.contact h2{
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  max-width: 720px;
+  margin: 0 auto 14px;
+}
+.contact p{ max-width: 520px; margin: 0 auto; }
+
+.contact__ctas{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contact__links{
+  margin-top: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  color: var(--text-dim);
+}
+.contact__links a{ transition: color .15s ease; }
+.contact__links a:hover{ color: var(--brass-soft); }
+
+.footer{
+  border-top: 1px solid var(--border-soft);
+  padding: 26px var(--gutter) 40px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}

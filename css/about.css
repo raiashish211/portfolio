@@ -1,0 +1,43 @@
+/* ============================================================
+   ABOUT — narrative + stat strip
+   ============================================================ */
+
+.about{ border-bottom: 1px solid var(--border-soft); }
+
+.about__text{
+  max-width: 680px;
+  font-size: 1.02rem;
+  margin-top: 18px;
+}
+
+.stats{
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border-soft);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+@media (max-width: 720px){
+  .stats{ grid-template-columns: repeat(2, 1fr); }
+}
+
+.stat{
+  background: var(--panel);
+  padding: 26px 22px;
+}
+.stat__num{
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--brass-soft);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.stat__label{
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
